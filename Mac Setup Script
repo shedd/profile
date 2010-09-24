@@ -1,0 +1,13 @@
+#link bash config files
+rm .bash_profile 
+ln -s ~/Dropbox/github/profile/.profile .profile
+ln -s ~/Dropbox/github/profile/.inputrc .inputrc
+ln -s ~/Dropbox/github/profile/.bashrc .bashrc
+
+#setup personal folder sync to Dropbox
+sudo rm -rf Desktop/
+ln -s ~/Dropbox/Desktop/ ~/Desktop
+sudo rm -rf Music/
+ln -s ~/Dropbox/Music ~/Music
+sudo rm -rf Downloads/
+ln -s ~/Dropbox/Downloads ~/Downloads
