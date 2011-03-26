@@ -1,13 +1,36 @@
 #link bash config files
 rm .bash_profile 
+rm .profile
 ln -s ~/Dropbox/github/profile/.profile .profile
 ln -s ~/Dropbox/github/profile/.inputrc .inputrc
 ln -s ~/Dropbox/github/profile/.bashrc .bashrc
+ln -s ~/Dropbox/github/profile/.irbrc .irbrc
+ln -s ~/Dropbox/github/profile/.gemrc .gemrc
+
+#link in terminitor
+ln -s  ~/Dropbox/github/profile/.terminitor/ .terminitor
 
 #setup personal folder sync to Dropbox
+#run from ~/
+cd ~/
 sudo rm -rf Desktop/
 ln -s ~/Dropbox/Desktop/ ~/Desktop
 sudo rm -rf Music/
 ln -s ~/Dropbox/Music ~/Music
 sudo rm -rf Downloads/
 ln -s ~/Dropbox/Downloads ~/Downloads
+sudo rm -rf Pictures/
+ln -s ~/Dropbox/Pictures ~/Pictures
+cd ~/Documents
+rm -rf My\ Kindle\ Content
+ln -s ~/Dropbox/My\ Kindle\ Content
+
+# hook textmate into dropbox
+cd ~/Library/Application\ Support/TextMate
+ln -s ~/Dropbox/TextMate/Plugins Plugins
+ln -s ~/Dropbox/TextMate/Bundles Bundles
+ln -s ~/Dropbox/TextMate/Themes Themes
+
+#tell git to use textmate
+git config --global --unset core.editor
+git config --global --add core.editor "mate -w"
