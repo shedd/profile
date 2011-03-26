@@ -1,0 +1,31 @@
+# BETDASH DEVELOPMENT ENVIRONMENT
+# tab 1: terminal in betdash project
+# tab 2: Rails console
+# tab 3: tail -f on development log
+# tab 4: resque workers
+
+before { run 'fgb' }
+
+tab "BetDash", :selected => true do
+	run "clear"
+	run "git fetch"
+	run "bundle install"
+	run "rake db:migrate"
+	run "git checkout develop"
+end
+
+tab "BetDash Console" do
+	run "clear"
+	run "script/console"
+end
+
+tab "BetDash Development Log" do
+	run "cd ./log"
+	run "clear"
+	run "tail -f development.log"
+end
+
+tab "BetDash Workers" do
+	run "clear"
+	run "COUNT=1 QUEUE=* rake environment resque:work"
+end
