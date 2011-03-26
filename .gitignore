@@ -1,3 +1,5 @@
 *.DS_Store
 .personal_config
+.corporate_config
+.server_config
 Personal Setup
